@@ -3,6 +3,13 @@ The open-source Computer Generated Forces program.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3c7864b24d9e4c34af94d263f17cb66c)](https://www.codacy.com/app/manny.systemsengineer/Open-CGF?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Manny-SystemsEngineer/Open-CGF&amp;utm_campaign=Badge_Grade)
 
+
+## Contact
+Any feedback, questions or feature requests please feel free to contact us at: manny.systemsengineer@gmail.com
+
+We'd love to hear from you!
+
+
 ## FAQ
 ### What's a CGF?
 A CGF (Computer Generated Force) is a computer program that allows virtual forces to be used in simulations. These forces are made up of entities and are not necessarily military in nature. CGFs are the backbone of many simulations and provide the logic and guidance for the rest of the simulators to follow.
