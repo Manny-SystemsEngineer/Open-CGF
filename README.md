@@ -10,6 +10,8 @@ If you've got questions, then head over to our [FAQ page](https://github.com/Man
 
 Anyone wishing to contribute should take a look at our page on [contributing](https://github.com/Manny-SystemsEngineer/Open-CGF/wiki/Contribute).
 
+[I'd like to find out more](http://eepurl.com/c9Ck9D)
+
 
 ## Contact
 Any feedback, questions or feature requests please feel free to contact us at: manny.systemsengineer@gmail.com
