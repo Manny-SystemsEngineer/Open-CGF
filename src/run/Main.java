@@ -31,6 +31,6 @@ public class Main {
         Configuration.setValue(AVKey.INITIAL_ALTITUDE, 20000);
 
         start("Worldwind Tactical Symbols", TacticalSymbols.AppFrame.class);
-
+//just one aircraft ATM
     }
 }
