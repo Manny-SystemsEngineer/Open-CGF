@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Open-CGF:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Open_CGF_jar</output-path>
+    <root id="archive" name="Open-CGF.jar">
+      <element id="module-output" name="Open-CGF" />
+      <element id="extracted-dir" path="$USER_HOME$/Libs/Open-DIS/java/open-dis_4.06.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Libs/Open-DIS/java/open-dis_4.07.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Libs/Open-DIS/java/open-dis_4.08.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

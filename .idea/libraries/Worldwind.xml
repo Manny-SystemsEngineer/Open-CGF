@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Worldwind">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Libs/Worldwind" />
+    </CLASSES>
+    <JAVADOC />
+    <NATIVE>
+      <root url="file://$USER_HOME$/Libs/Worldwind" />
+    </NATIVE>
+    <SOURCES>
+      <root url="file://$USER_HOME$/Libs/Worldwind/src" />
+      <root url="file://$USER_HOME$/Libs/Worldwind/test" />
+      <root url="file://$USER_HOME$/Libs/Worldwind/testFunctional" />
+      <root url="file://$USER_HOME$/Libs/Worldwind" />
+    </SOURCES>
+    <jarDirectory url="file://$USER_HOME$/Libs/Worldwind" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Libs/Worldwind" recursive="false" type="SOURCES" />
+  </library>
+</component>
