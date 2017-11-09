@@ -1,7 +1,7 @@
 # Open-CGF
 The open-source Computer Generated Forces solution.
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3c7864b24d9e4c34af94d263f17cb66c)](https://www.codacy.com/app/manny.systemsengineer/Open-CGF?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Manny-SystemsEngineer/Open-CGF&amp;utm_campaign=Badge_Grade) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) [![NSP Status](https://nodesecurity.io/orgs/open-cgf/projects/62ad84b7-4800-4ebb-b99c-d0826404aaf6/badge)](https://nodesecurity.io/orgs/open-cgf/projects/62ad84b7-4800-4ebb-b99c-d0826404aaf6)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3c7864b24d9e4c34af94d263f17cb66c)](https://www.codacy.com/app/manny.systemsengineer/Open-CGF?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Manny-SystemsEngineer/Open-CGF&amp;utm_campaign=Badge_Grade) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues) 
 
 ## Where to start...
 For those of you who just want to dive in, there's a [quick start guide](https://github.com/Manny-SystemsEngineer/Open-CGF/wiki/User-Guide#quick-start) available.
