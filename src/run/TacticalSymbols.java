@@ -13,8 +13,11 @@ import gov.nasa.worldwind.symbology.milstd2525.MilStd2525TacticalSymbol;
 import gov.nasa.worldwind.util.BasicDragger;
 import gov.nasa.worldwind.util.WWUtil;
 import gov.nasa.worldwindx.examples.ApplicationTemplate;
+import jdk.nashorn.internal.ir.Symbol;
 
 import java.awt.*;
+import java.util.ArrayList;
+
 
 public class TacticalSymbols extends ApplicationTemplate {
     public static class AppFrame extends ApplicationTemplate.AppFrame{
@@ -23,7 +26,7 @@ public class TacticalSymbols extends ApplicationTemplate {
         protected TacticalSymbolAttributes sharedHighlightAttrs;
         protected BasicDragger dragger;
 
-        public AppFrame() {
+        public AppFrame() throws Exception {
             this.symbolLayer = new RenderableLayer();
             this.symbolLayer.setName("Tactical Symbols");
 
@@ -34,40 +37,20 @@ public class TacticalSymbols extends ApplicationTemplate {
             this.sharedHighlightAttrs.setTextModifierMaterial(Material.WHITE);
             this.sharedHighlightAttrs.setOpacity(1.0);
 
-            TacticalSymbol airSymbol = new MilStd2525TacticalSymbol("SFAPMFQM-------", Position.fromDegrees(32.4520, 63.44553, 3000));
-            airSymbol.setValue(AVKey.DISPLAY_NAME, "MIL-STD-2525 Friendly SOF Drone Aircraft");
-            airSymbol.setAttributes(this.sharedAttrs);
-            airSymbol.setHighlightAttributes(this.sharedHighlightAttrs);
-            airSymbol.setModifier(SymbologyConstants.DIRECTION_OF_MOVEMENT, Angle.fromDegrees(235));
-            airSymbol.setShowLocation(false);
-            this.symbolLayer.addRenderable(airSymbol);
+            ArrayList<TacticalSymbol> Symbols = new ArrayList<>();
 
-            TacticalSymbol targetSymbol = new MilStd2525TacticalSymbol("SHGPIB----A----", Position.fromDegrees(32.4014, 63.3894, 0));
-            targetSymbol.setValue(AVKey.DISPLAY_NAME, "MIL-STD-2525 Hostile Facility");
-            targetSymbol.setAttributes(this.sharedAttrs);
-            targetSymbol.setHighlightAttributes(this.sharedHighlightAttrs);
-            targetSymbol.setModifier(SymbologyConstants.DIRECTION_OF_MOVEMENT, Angle.fromDegrees(90));
-            targetSymbol.setModifier(SymbologyConstants.SPEED_LEADER_SCALE, 0.5);
-            targetSymbol.setShowLocation(false);
-            this.symbolLayer.addRenderable(targetSymbol);
+            Symbols.add(GenerateSymbol.GenerateTacticalSymbol("Friendly Done","SFAPMFQ--------",32.4517,63.4478,5000.0));
+            Symbols.add(GenerateSymbol.GenerateTacticalSymbol("Friendly Recon Squad","SFGPUCR----B---",32.4324,63.4146,3000.0));
+            Symbols.add(GenerateSymbol.GenerateTacticalSymbol("Friendly Infantry Company","SFGPUCI----E---",32.3929,63.3547,0.0));
 
-            TacticalSymbol groundSymbol = new MilStd2525TacticalSymbol("SFGPUCI----E---", Position.fromDegrees(32.423, 63.324, 0));
-            groundSymbol.setValue(AVKey.DISPLAY_NAME, "MIL-STD-2525 Friendly Infantry Company");
-            groundSymbol.setAttributes(this.sharedAttrs);
-            groundSymbol.setHighlightAttributes(this.sharedHighlightAttrs);
-            groundSymbol.setModifier(SymbologyConstants.DIRECTION_OF_MOVEMENT, Angle.fromDegrees(90));
-            groundSymbol.setModifier(SymbologyConstants.SPEED_LEADER_SCALE, 0.5);
-            groundSymbol.setShowLocation(false);
-            this.symbolLayer.addRenderable(groundSymbol);
+            Symbols.add(GenerateSymbol.GenerateTacticalSymbol("Hostile HQ","SHGPIB----A----",32.3858,63.4099,3000.0));
+            Symbols.add(GenerateSymbol.GenerateTacticalSymbol("Potential Hostile Missle Launcher","SHGAUCM--------",32.39,63.45,3000.0));
 
-            TacticalSymbol reconSymbol = new MilStd2525TacticalSymbol("SFGPUCR----B---", Position.fromDegrees(32.413, 63.40, 0));
-            reconSymbol.setValue(AVKey.DISPLAY_NAME, "MIL-STD-2525 Friendly Recon Squad");
-            reconSymbol.setAttributes(this.sharedAttrs);
-            reconSymbol.setHighlightAttributes(this.sharedHighlightAttrs);
-            reconSymbol.setModifier(SymbologyConstants.DIRECTION_OF_MOVEMENT, Angle.fromDegrees(90));
-            reconSymbol.setModifier(SymbologyConstants.SPEED_LEADER_SCALE, 0.5);
-            reconSymbol.setShowLocation(false);
-            this.symbolLayer.addRenderable(reconSymbol);
+            for(TacticalSymbol Symbol : Symbols){
+                Symbol.setAttributes(this.sharedAttrs);
+                Symbol.setHighlightAttributes(this.sharedHighlightAttrs);
+                this.symbolLayer.addRenderable(Symbol);
+            }
 
 
 
@@ -78,6 +61,7 @@ public class TacticalSymbols extends ApplicationTemplate {
 
             Dimension size = new Dimension(1800, 1000);
             this.setPreferredSize(size);
+
             this.pack();
             WWUtil.alignComponent(null, this, AVKey.CENTER);
         }

@@ -9,12 +9,13 @@ import gov.nasa.worldwind.avlist.AVKey;
 import javax.swing.*;
 import java.util.Objects;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import static gov.nasa.worldwindx.examples.ApplicationTemplate.start;
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         String password = "manny";
         Scanner str_reader = new Scanner(System.in);
         System.out.println(("Login:"));
@@ -38,6 +39,13 @@ public class Main {
         Configuration.setValue(AVKey.INITIAL_ALTITUDE, 20000);
 
         start("Worldwind Tactical Symbols", TacticalSymbols.AppFrame.class);
+
+        try {
+            TimeUnit.SECONDS.sleep(20);
+            //System.exit(0);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 //just one aircraft ATM
     }
 }
