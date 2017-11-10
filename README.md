@@ -30,4 +30,4 @@ Great question! The vast majority of CGFs are closed and proprietary. This basic
 The short answer is: you don't have to. We plan on sitting alongside the big players to provide a basic service that you can use to develop your own application/systems. As we use open standards (DIS & HLA), anything that works with us, will work with anyone else. We don't want to tie you in with proprietary systems that don't play nice. All we want is for you to have access to a CGF that won't break the bank.
 
 ### Sounds good, but what's the catch? How do you make money?
-There's no catch. Open-CGF is free and always will be. Our business model is to provide paid support and annual updates of data models, SISO enumerations, terrain data, etc... If you don't need those, then you don't pay. Simple really!
+There's no catch. Open-CGF is free and always will be.  Simple really!
