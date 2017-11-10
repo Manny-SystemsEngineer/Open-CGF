@@ -2,21 +2,13 @@ package run;
 
 //import edu.nps.moves.examples.PduSender;
 
-
-import gov.nasa.worldwind.Configuration;
-import gov.nasa.worldwind.avlist.AVKey;
-
-import javax.swing.*;
-import java.util.Objects;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import static gov.nasa.worldwindx.examples.ApplicationTemplate.start;
 
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        String password = "manny";
+/*        String password = "manny";
         Scanner str_reader = new Scanner(System.in);
         System.out.println(("Login:"));
         String user = str_reader.next();
@@ -27,9 +19,10 @@ public class Main {
         }
 
         System.out.println("Hello " + user + "!");
+*/
 
-        Thread thread = new Thread(new WorldwindThread());
-        thread.start();
+        Thread worldwindthread = new Thread(new WorldwindThread());
+        worldwindthread.start();
 
         //PduSender Sender = new PduSender(80, "TEST");
         //Sender.run();

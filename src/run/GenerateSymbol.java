@@ -3,7 +3,6 @@ package run;
 import gov.nasa.worldwind.avlist.AVKey;
 import gov.nasa.worldwind.geom.Angle;
 import gov.nasa.worldwind.geom.Position;
-import gov.nasa.worldwind.symbology.BasicTacticalSymbolAttributes;
 import gov.nasa.worldwind.symbology.SymbologyConstants;
 import gov.nasa.worldwind.symbology.TacticalSymbol;
 import gov.nasa.worldwind.symbology.milstd2525.MilStd2525TacticalSymbol;
