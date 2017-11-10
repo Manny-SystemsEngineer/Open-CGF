@@ -28,6 +28,8 @@ public class WorldwindThread implements Runnable{
 
         //Update tactical symbols
         while(true) {
+            //cleans map of tactical symbols
+            world.symbolLayer.removeAllRenderables();
             ArrayList<TacticalSymbol> Symbols = SymbolConstructor.getSymbol();
 
             //for all symbols give a standard set of attributes then add to the layer
@@ -37,12 +39,18 @@ public class WorldwindThread implements Runnable{
                 world.symbolLayer.addRenderable(Symbol);
             }
 
+            //tells map that renderables need updating
             world.symbolLayer.firePropertyChange(AVKey.LAYER, null, this);
+
+            //adds delay to avoid processing overheads
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            //debug
+            System.out.println("Tac Sym Update");
         }
     }
 

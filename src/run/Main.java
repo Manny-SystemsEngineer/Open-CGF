@@ -24,17 +24,10 @@ public class Main {
         Thread worldwindthread = new Thread(new WorldwindThread());
         worldwindthread.start();
 
+        System.out.println("Worldwind thread started");
+
         //PduSender Sender = new PduSender(80, "TEST");
         //Sender.run();
-
-        System.out.println("WOOOOOOO!");
-
-        try {
-            TimeUnit.SECONDS.sleep(20);
-            //System.exit(0);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
 
     }
 }

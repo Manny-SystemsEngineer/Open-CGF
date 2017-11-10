@@ -54,34 +54,12 @@ public class TacticalSymbols extends ApplicationTemplate {
             vlayer.setShowZoomControls(false);
             vlayer.setName("Open-CGF");
 
-
             Dimension size = new Dimension(1800, 1000);
             this.setPreferredSize(size);
 
             this.pack();
             WWUtil.alignComponent(null, this, AVKey.CENTER);
-
-
-
-
-            /*ArrayList<TacticalSymbol> Symbols = SymbolConstructor.getSymbol();
-
-                //for all symbols give a standard set of attributes then add to the layer
-                for (TacticalSymbol Symbol : Symbols) {
-                    Symbol.setAttributes(this.sharedAttrs);
-                    Symbol.setHighlightAttributes(this.sharedHighlightAttrs);
-                    this.symbolLayer.addRenderable(Symbol);
-                }*/
-
             }
-
-
-
         }
-
-
-
-
-
     }
 
