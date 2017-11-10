@@ -28,17 +28,13 @@ public class Main {
 
         System.out.println("Hello " + user + "!");
 
+        Thread thread = new Thread(new WorldwindThread());
+        thread.start();
 
         //PduSender Sender = new PduSender(80, "TEST");
         //Sender.run();
 
-        Configuration.setValue(AVKey.INITIAL_LATITUDE, 32.49);
-        Configuration.setValue(AVKey.INITIAL_LONGITUDE, 63.455);
-        Configuration.setValue(AVKey.INITIAL_HEADING, 22);
-        Configuration.setValue(AVKey.INITIAL_PITCH, 82);
-        Configuration.setValue(AVKey.INITIAL_ALTITUDE, 20000);
-
-        start("Worldwind Tactical Symbols", TacticalSymbols.AppFrame.class);
+        System.out.println("WOOOOOOO!");
 
         try {
             TimeUnit.SECONDS.sleep(20);
@@ -46,6 +42,6 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//just one aircraft ATM
+
     }
 }
