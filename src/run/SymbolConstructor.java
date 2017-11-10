@@ -8,12 +8,12 @@ public class SymbolConstructor {
     //create an array to store tacical symbols
     static ArrayList<TacticalSymbol> Symbols = new ArrayList<>();
 
-    public static ArrayList<TacticalSymbol> getSymbol() throws Exception {
+    public static ArrayList<TacticalSymbol> getSymbol(){
         populateSymbols();
         return Symbols;
     }
 
-    private static void populateSymbols() throws Exception {
+    private static void populateSymbols(){
 
 
         //generate BLUFOR symbols and add to the Symbols array

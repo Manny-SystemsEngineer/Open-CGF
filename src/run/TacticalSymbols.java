@@ -5,7 +5,6 @@ import gov.nasa.worldwind.layers.RenderableLayer;
 import gov.nasa.worldwind.layers.ViewControlsLayer;
 import gov.nasa.worldwind.render.Material;
 import gov.nasa.worldwind.symbology.BasicTacticalSymbolAttributes;
-import gov.nasa.worldwind.symbology.TacticalSymbol;
 import gov.nasa.worldwind.symbology.TacticalSymbolAttributes;
 import gov.nasa.worldwind.util.BasicDragger;
 import gov.nasa.worldwind.util.WWUtil;
@@ -13,7 +12,7 @@ import gov.nasa.worldwindx.examples.ApplicationTemplate;
 
 
 import java.awt.*;
-import java.util.ArrayList;
+
 
 
 
@@ -24,6 +23,10 @@ public class TacticalSymbols extends ApplicationTemplate {
         protected TacticalSymbolAttributes sharedHighlightAttrs;
         protected BasicDragger dragger;
 
+        public AppFrame getAppFrame(){
+            AppFrame appFrame = this;
+            return appFrame;
+        }
 
         public AppFrame() throws Exception {
             this.symbolLayer = new RenderableLayer();
@@ -61,14 +64,14 @@ public class TacticalSymbols extends ApplicationTemplate {
 
 
 
-            ArrayList<TacticalSymbol> Symbols = SymbolConstructor.getSymbol();
+            /*ArrayList<TacticalSymbol> Symbols = SymbolConstructor.getSymbol();
 
                 //for all symbols give a standard set of attributes then add to the layer
                 for (TacticalSymbol Symbol : Symbols) {
                     Symbol.setAttributes(this.sharedAttrs);
                     Symbol.setHighlightAttributes(this.sharedHighlightAttrs);
                     this.symbolLayer.addRenderable(Symbol);
-                }
+                }*/
 
             }
 
