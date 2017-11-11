@@ -9,11 +9,7 @@ import gov.nasa.worldwind.symbology.TacticalSymbolAttributes;
 import gov.nasa.worldwind.util.BasicDragger;
 import gov.nasa.worldwind.util.WWUtil;
 import gov.nasa.worldwindx.examples.ApplicationTemplate;
-
-
 import java.awt.*;
-
-
 
 
 public class TacticalSymbols extends ApplicationTemplate {
