@@ -2,32 +2,30 @@ package run;
 
 //import edu.nps.moves.examples.PduSender;
 
-import java.util.concurrent.TimeUnit;
-
-
+import gov.nasa.worldwind.symbology.TacticalSymbol;
+import java.util.Scanner;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-/*        String password = "manny";
+        BlockingQueue<TacticalSymbol> tacticalSymbolsQueue = new ArrayBlockingQueue<TacticalSymbol>(100);
+
+        //enter exerciseID
         Scanner str_reader = new Scanner(System.in);
-        System.out.println(("Login:"));
-        String user = str_reader.next();
+        System.out.println(("Exercise:"));
+        String exerciseID = str_reader.next();
 
-        if(!Objects.equals(user, password)){
-            System.out.println("Access Denied!");
-            System.exit(0);
-        }
+        Runnable entity_drone = new EntityThread(tacticalSymbolsQueue,"SNAKE-EYES","SFAPMFQ--------", 32.4517, 63.4478, 5000.0);
+        new Thread(entity_drone).start();
 
-        System.out.println("Hello " + user + "!");
-*/
-
-        Thread worldwindthread = new Thread(new WorldwindThread());
-        worldwindthread.start();
+        //pass exerciseID to worldwind thread then start thread
+        Runnable worldwindthread = new WorldwindThread(exerciseID,tacticalSymbolsQueue);
+        new Thread(worldwindthread).start();
 
         System.out.println("Worldwind thread started");
 
         //PduSender Sender = new PduSender(80, "TEST");
         //Sender.run();
-
     }
 }
