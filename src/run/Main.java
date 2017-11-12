@@ -16,8 +16,11 @@ public class Main {
         System.out.println(("Exercise:"));
         String exerciseID = str_reader.next();
 
-        Runnable entity_drone = new EntityThread(tacticalSymbolsQueue,"SNAKE-EYES","SFAPMFQ--------", 32.4517, 63.4478, 5000.0);
+        Runnable entity_drone = new EntityThread(tacticalSymbolsQueue,"SNAKE-EYES","SFAPMFQ--------", 32.4517, 63.4478, 5000.0,-0.000003);
         new Thread(entity_drone).start();
+
+        Runnable entity_sensor = new EntityThread(tacticalSymbolsQueue,"Hostile Radar","SHGPESR--------", 32.3858, 63.4099, 5000.0,0.0);
+        new Thread(entity_sensor).start();
 
         //pass exerciseID to worldwind thread then start thread
         Runnable worldwindthread = new WorldwindThread(exerciseID,tacticalSymbolsQueue);
