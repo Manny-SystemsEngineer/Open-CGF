@@ -10,14 +10,16 @@ public class EntityThread implements Runnable{
     double entitylat;
     double entitylon;
     double entityele;
+    double entityMov;
     BlockingQueue<TacticalSymbol> entitySymbolsQueue;
 
-    public EntityThread( BlockingQueue<TacticalSymbol> symbolsQueue, String name, String SIDC, double lat, double lon, double ele){
+    public EntityThread( BlockingQueue<TacticalSymbol> symbolsQueue, String name, String SIDC, double lat, double lon, double ele, double Mov){
         this.entityName = name;
         this.entitySIDC = SIDC;
         this.entitylat = lat;
         this.entitylon = lon;
         this.entityele = ele;
+        this.entityMov = Mov;
         this.entitySymbolsQueue = symbolsQueue;
 
 
@@ -28,7 +30,8 @@ public class EntityThread implements Runnable{
 
         while (true) {
 
-            this.entitylon += 0.0001;
+            this.entitylon += entityMov;
+            this.entitylat += entityMov;
             TacticalSymbol symbol = GenerateSymbol.GenerateTacticalSymbol(entityName,entitySIDC,entitylat,entitylon,entityele);
 
             try {
