@@ -5,7 +5,6 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class EntityThread implements Runnable{
-    String entityThread;
     String entityName;
     String entitySIDC;
     double entitylat;
@@ -13,34 +12,29 @@ public class EntityThread implements Runnable{
     double entityele;
     BlockingQueue<TacticalSymbol> entitySymbolsQueue;
 
-    public EntityThread(String threadName, BlockingQueue<TacticalSymbol> symbolsQueue, String name, String SIDC, double lat, double lon, double ele){
-        entityThread = threadName;
-        entityName = name;
-        entitySIDC = SIDC;
-        entitylat = lat;
-        entitylon = lon;
-        entityele = ele;
-        entitySymbolsQueue = symbolsQueue;
+    public EntityThread( BlockingQueue<TacticalSymbol> symbolsQueue, String name, String SIDC, double lat, double lon, double ele){
+        this.entityName = name;
+        this.entitySIDC = SIDC;
+        this.entitylat = lat;
+        this.entitylon = lon;
+        this.entityele = ele;
+        this.entitySymbolsQueue = symbolsQueue;
 
 
     }
 
     @Override
     public void run() {
-        Thread.currentThread().setName(entityThread);
-        //System.out.println(Thread.currentThread().getName());
 
         while (true) {
-            try {
-                TimeUnit.SECONDS.wait(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
             this.entitylon += 0.0001;
+            TacticalSymbol symbol = GenerateSymbol.GenerateTacticalSymbol(entityName,entitySIDC,entitylat,entitylon,entityele);
+
             try {
-                entitySymbolsQueue.put(GenerateSymbol.GenerateTacticalSymbol(entityName,entitySIDC,entitylat,entitylon,entityele));
-                System.out.println("Generate TACSY");
+                entitySymbolsQueue.put(symbol);
             } catch (InterruptedException e) {
+                System.out.println(e);
                 e.printStackTrace();
             }
 

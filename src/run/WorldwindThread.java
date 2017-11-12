@@ -11,11 +11,12 @@ import static gov.nasa.worldwindx.examples.ApplicationTemplate.start;
 
 public class WorldwindThread implements Runnable{
     String exercise;
-    BlockingQueue<ArrayList<TacticalSymbol>> symbolsArrayQueue;
+    BlockingQueue<TacticalSymbol> symbolsQueue;
+    ArrayList<TacticalSymbol> symbolArrayList = new ArrayList<>();
 
-    public WorldwindThread(String exerciseID, BlockingQueue<ArrayList<TacticalSymbol>> symbolsQueue){
+    public WorldwindThread(String exerciseID, BlockingQueue<TacticalSymbol> symbolsQueue){
         exercise = exerciseID;
-        symbolsArrayQueue = symbolsQueue;
+        this.symbolsQueue = symbolsQueue;
     }
 
     @Override
@@ -45,10 +46,13 @@ public class WorldwindThread implements Runnable{
         //Update tactical symbols
         while(true) {
 
-            ArrayList<TacticalSymbol> Symbols = null;
+            int capacity = 100;
+            ArrayList<TacticalSymbol> Symbols = new ArrayList<>();
             try {
-                Symbols = symbolsArrayQueue.take();
-                System.out.println("Got Array");
+                while(capacity > symbolsQueue.remainingCapacity() ){
+                    TacticalSymbol symbol = symbolsQueue.take();
+                    Symbols.add(symbol);
+                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -73,8 +77,6 @@ public class WorldwindThread implements Runnable{
                 e.printStackTrace();
             }
 
-            //debug
-            System.out.println("Tac Sym Update");
         }
     }
 
