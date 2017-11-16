@@ -63,7 +63,7 @@ public class WorldwindThread implements Runnable{
                 e.printStackTrace();
             }
 
-            //tells map that renderables need updating
+            //tells map that renderables needs updating
             wwd.redraw();
 
             //adds delay to avoid processing overheads
