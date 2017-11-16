@@ -11,6 +11,7 @@ public class EntityThread implements Runnable{
     double entitylon;
     double entityele;
     double entityMov;
+    boolean entityAli;
     BlockingQueue<TacticalSymbol> entitySymbolsQueue;
 
     public EntityThread( BlockingQueue<TacticalSymbol> symbolsQueue, String name, String SIDC, double lat, double lon, double ele, double Mov){
@@ -21,6 +22,7 @@ public class EntityThread implements Runnable{
         this.entityele = ele;
         this.entityMov = Mov;
         this.entitySymbolsQueue = symbolsQueue;
+        this.entityAli = true;
 
 
     }
@@ -29,6 +31,9 @@ public class EntityThread implements Runnable{
     public void run() {
 
         while (true) {
+            if(!this.entityAli){
+                this.entitySIDC = this.entitySIDC.substring(0,4)+'A'+this.entitySIDC.substring(5);
+            }
 
             this.entitylon += entityMov;
             this.entitylat += entityMov;
