@@ -16,17 +16,10 @@ public class Main {
         System.out.println(("Exercise:"));
         String exerciseID = str_reader.next();
 
-        //create simulation entities
         Runnable entity_drone = new EntityThread(tacticalSymbolsQueue,"SNAKE-EYES","SFAPMFQ--------", 32.4517, 63.4478, 5000.0,-0.000005);
         new Thread(entity_drone).start();
 
-        Runnable entity_infantry = new EntityThread(tacticalSymbolsQueue,"FOXHOUND","SFGPUCI----E---", 32.4325, 63.4146, 0.0,0.0);
-        new Thread(entity_infantry).start();
-
-        Runnable entity_armour = new EntityThread(tacticalSymbolsQueue,"IRONSIDE","SFGPUCA----D---", 32.3929, 63.3547, 0.0,0.0000001);
-        new Thread(entity_armour).start();
-
-        Runnable entity_sensor = new EntityThread(tacticalSymbolsQueue,"Hostile Radar","SHGPESR--------", 32.3858, 63.4099, 0.0,0.0);
+        Runnable entity_sensor = new EntityThread(tacticalSymbolsQueue,"Hostile Radar","SHGPESR--------", 32.3858, 63.4099, 5000.0,0.0);
         new Thread(entity_sensor).start();
 
         //pass exerciseID to worldwind thread then start thread

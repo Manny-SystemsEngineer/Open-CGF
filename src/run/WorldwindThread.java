@@ -41,9 +41,7 @@ public class WorldwindThread implements Runnable{
                 System.out.println("Exercise not recognised");
                 System.exit(0);
         }
-
         AppFrame world = (AppFrame) start("Open-CGF", AppFrame.class);
-
         WorldWindow wwd = world.getWwd();
 
         //Update tactical symbols
@@ -52,6 +50,8 @@ public class WorldwindThread implements Runnable{
             world.symbolLayer.removeAllRenderables();
 
             int capacity = 100;
+
+            //for all symbols give a standard set of attributes then add to the layer
             try {
                 while(capacity > symbolsQueue.remainingCapacity() ){
                     TacticalSymbol symbol = symbolsQueue.take();
@@ -66,7 +66,6 @@ public class WorldwindThread implements Runnable{
             //tells map that renderables need updating
             wwd.redraw();
 
-
             //adds delay to avoid processing overheads
             try {
                 TimeUnit.SECONDS.sleep(1);
@@ -75,7 +74,6 @@ public class WorldwindThread implements Runnable{
             }
 
         }
-
     }
 
 }
