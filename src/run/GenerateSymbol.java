@@ -11,7 +11,10 @@ public class GenerateSymbol {
 
 //Input name, identifier and position to generate an icon at that location
     public static TacticalSymbol generateTacticalSymbol(String displayName, String SCID, double lat, double lon, double ele){
-            TacticalSymbol newSymbol = new MilStd2525TacticalSymbol(SCID, Position.fromDegrees(lat, lon, ele));
+        if(SCID.length()!=15){
+            throw new AssertionError("SCID is not 15 characters");
+        }
+        TacticalSymbol newSymbol = new MilStd2525TacticalSymbol(SCID, Position.fromDegrees(lat, lon, ele));
             newSymbol.setValue(AVKey.DISPLAY_NAME, displayName);
             newSymbol.setModifier(SymbologyConstants.DIRECTION_OF_MOVEMENT, Angle.fromDegrees(25));
             newSymbol.setModifier(SymbologyConstants.SPEED_LEADER_SCALE, 0.5);

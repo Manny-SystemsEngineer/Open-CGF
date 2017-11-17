@@ -4,7 +4,6 @@ import gov.nasa.worldwind.Configuration;
 import gov.nasa.worldwind.WorldWindow;
 import gov.nasa.worldwind.avlist.AVKey;
 import gov.nasa.worldwind.symbology.TacticalSymbol;
-import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import run.TacticalSymbols.*;
@@ -38,9 +37,8 @@ public class WorldwindThread implements Runnable{
                 Configuration.setValue(AVKey.INITIAL_ALTITUDE, 20000);
                 break;
             default:
-                System.out.println("Exercise not recognised");
-                System.exit(0); //should replace with terminating of threads
-                break;
+                throw new AssertionError("Exercise not recognised");
+
 
         }
         AppFrame world = (AppFrame) start("Open-CGF", AppFrame.class);
