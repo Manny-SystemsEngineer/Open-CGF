@@ -11,8 +11,8 @@ import run.TacticalSymbols.*;
 import static gov.nasa.worldwindx.examples.ApplicationTemplate.start;
 
 public class WorldwindThread implements Runnable{
-    String exercise;
-    BlockingQueue<TacticalSymbol> symbolsQueue;
+    private String exercise;
+    private BlockingQueue<TacticalSymbol> symbolsQueue;
 
     public WorldwindThread(String exerciseID, BlockingQueue<TacticalSymbol> symbolsQueue){
         exercise = exerciseID;
@@ -39,7 +39,9 @@ public class WorldwindThread implements Runnable{
                 break;
             default:
                 System.out.println("Exercise not recognised");
-                System.exit(0);
+                System.exit(0); //should replace with terminating of threads
+                break;
+
         }
         AppFrame world = (AppFrame) start("Open-CGF", AppFrame.class);
         WorldWindow wwd = world.getWwd();

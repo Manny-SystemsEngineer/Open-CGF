@@ -10,7 +10,7 @@ import gov.nasa.worldwind.symbology.milstd2525.MilStd2525TacticalSymbol;
 public class GenerateSymbol {
 
 //Input name, identifier and position to generate an icon at that location
-    public static TacticalSymbol GenerateTacticalSymbol(String displayName, String SCID, double lat, double lon, double ele){
+    public static TacticalSymbol generateTacticalSymbol(String displayName, String SCID, double lat, double lon, double ele){
             TacticalSymbol newSymbol = new MilStd2525TacticalSymbol(SCID, Position.fromDegrees(lat, lon, ele));
             newSymbol.setValue(AVKey.DISPLAY_NAME, displayName);
             newSymbol.setModifier(SymbologyConstants.DIRECTION_OF_MOVEMENT, Angle.fromDegrees(25));
