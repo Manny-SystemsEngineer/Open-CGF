@@ -44,6 +44,7 @@ public class WorldwindThread implements Runnable{
         AppFrame world = (AppFrame) start("Open-CGF", AppFrame.class);
         WorldWindow wwd = world.getWwd();
 
+
         //Update tactical symbols
         while(true) {
             //cleans map of tactical symbols
