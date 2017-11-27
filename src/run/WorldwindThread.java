@@ -47,7 +47,7 @@ public class WorldwindThread implements Runnable{
         //Update tactical symbols
         while(true) {
             //cleans map of tactical symbols
-            world.symbolLayer.removeAllRenderables();
+            //world.symbolLayer.removeAllRenderables();
 
             int capacity = 100;
 
@@ -68,7 +68,7 @@ public class WorldwindThread implements Runnable{
 
             //adds delay to avoid processing overheads
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

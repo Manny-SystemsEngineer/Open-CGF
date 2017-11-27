@@ -1,5 +1,6 @@
 package run;
 
+import gov.nasa.worldwind.geom.Position;
 import gov.nasa.worldwind.symbology.TacticalSymbol;
 import java.util.concurrent.BlockingQueue;
 
@@ -12,6 +13,7 @@ public class EntityThread implements Runnable{
     private double entityMov;
     private boolean entityAli;
     private BlockingQueue<TacticalSymbol> entitySymbolsQueue;
+    private TacticalSymbol symbol;
 
     public EntityThread( BlockingQueue<TacticalSymbol> symbolsQueue, String name, String SIDC, double lat, double lon, double ele, double Mov){
         this.entityName = name;
@@ -24,10 +26,13 @@ public class EntityThread implements Runnable{
         this.entityAli = true;
 
 
+
     }
 
     @Override
     public void run() {
+
+        this.symbol = GenerateSymbol.generateTacticalSymbol(entityName,entitySIDC,entitylat,entitylon,entityele);
 
         while (true) {
             if(!this.entityAli){
@@ -36,7 +41,7 @@ public class EntityThread implements Runnable{
 
             this.entitylon += entityMov;
             this.entitylat += entityMov;
-            TacticalSymbol symbol = GenerateSymbol.generateTacticalSymbol(entityName,entitySIDC,entitylat,entitylon,entityele);
+            this.symbol.setPosition(Position.fromDegrees(this.entitylat, this.entitylon, this.entityele));
 
             try {
                 entitySymbolsQueue.put(symbol);
